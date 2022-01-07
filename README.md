@@ -1,0 +1,1 @@
+# Role-for-install-zabbix-agent-on-RHEL-Like-with-local-rpm
