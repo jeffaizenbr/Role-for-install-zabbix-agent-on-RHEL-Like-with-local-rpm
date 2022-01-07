@@ -1,0 +1,5 @@
+---
+# conectando ao servidor do Zabbix
+zabbix_agent_server: 10.1.1.100
+# Porta do agente Zabbix
+zabbix_agent_server_port: 10050

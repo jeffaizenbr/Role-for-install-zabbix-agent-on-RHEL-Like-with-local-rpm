@@ -1,0 +1,19 @@
+---
+  - name: Checando se existem versões anteriores de agente zabbix instaladas
+    stat: path=/usr/sbin/zabbix_agentd
+    register: zabbix_agent_installed
+
+  - include: install.yaml
+    when: not zabbix_agent_installed.stat.exists
+
+  - include: configure.yaml
+    when: not zabbix_agent_installed.stat.exists
+  
+  - name: Criando diretorio de Log
+    file: path=/var/log/zabbix state=directory owner=zabbix group=zabbix mode=0775
+    when: not zabbix_agent_installed.stat.exists
+
+  - name: Iniciando serviço do agente Zabbix
+    service: name=zabbix-agent state=started enabled=yes
+    ignore_errors: yes
+

@@ -1,0 +1,57 @@
+---
+########Copy Agent for RHEL like OS######
+
+  - name: Copy Zabbix Agent, RHEL or CentOS - 5
+    copy:
+      src: /srv/rhel/{{ ansible_distribution_major_version }}/Zabbix-AgentRHEL.rpm
+      dest: /tmp/
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 5
+
+  - name: Copy Zabbix Agent, RHEL or CentOS - 6
+    copy:
+      src: /srv/rhel/{{ ansible_distribution_major_version }}/Zabbix-AgentRHEL.rpm
+      dest: /tmp/
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 6
+
+  - name: Copy Zabbix Agent, RHEL or CentOS - 7
+    copy:
+      src: /srv/rhel/{{ ansible_distribution_major_version }}/Zabbix-AgentRHEL.rpm
+      dest: /tmp/
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 7
+
+  - name: Copy Zabbix Agent, RHEL or CentOS - 8
+    copy:
+      src: /srv/rhel/{{ ansible_distribution_major_version }}/Zabbix-AgentRHEL.rpm
+      dest: /tmp/
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 8
+
+########Install Zabbix-agent#########
+
+  - name: Install RHEL or CentOS 5
+    yum:
+      name: /tmp/Zabbix-AgentRHEL.rpm
+      state: present
+      disable_gpg_check: yes
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 5
+
+  - name: Install RHEL or CentOS 6
+    yum:
+      name: /tmp/Zabbix-AgentRHEL.rpm
+      state: present
+      disable_gpg_check: yes
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 6
+
+  - name: Install RHEL or CentOS 7
+    yum:
+      name: /tmp/Zabbix-AgentRHEL.rpm
+      state: present
+      disable_gpg_check: yes
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 7
+
+  - name: Install RHEL or CentOS 8
+    yum:
+      name: /tmp/Zabbix-AgentRHEL.rpm
+      state: present
+      disable_gpg_check: yes
+    when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int == 8
+

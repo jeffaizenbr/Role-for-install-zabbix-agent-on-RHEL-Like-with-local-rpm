@@ -1,0 +1,6 @@
+---
+  - name: restart zabbix-agent 
+    service: name=zabbix-agent state=restarted 
+   
+ # - name: Reiniciar o agente do zabbix2 
+ #   service: name=zabbix-agentd state=restarted
